@@ -1,0 +1,40 @@
+<!--featured-cars start -->
+<section id="featured-cars" class="featured-cars">
+  <div class="container">
+    <div class="section-header">
+      <p>checkout <span>the</span> featured cars</p>
+      <h2>featured cars</h2>
+    </div>
+    <div class="featured-cars-content">
+      <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let car of cars">
+          <div class="single-featured-cars">
+            <div class="featured-img-box">
+              <div class="featured-cars-img">
+                <img [src]="car.image" alt="cars">
+              </div>
+              <div class="featured-model-info">
+                <p>
+                  model: {{car.model}}
+                  <span class="featured-mi-span"> {{car.mileage}}</span>
+                  <span class="featured-hp-span"> {{car.hp}}</span>
+                  {{car.transmission}}
+                </p>
+              </div>
+            </div>
+            <div class="featured-cars-txt">
+              <h2>{{car.name}}</h2>
+              <h3 *ngIf="car.price">${{car.price | number}}</h3>
+              <p>{{car.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--featured-cars end -->
+<!--blog start -->
+<section id="blog" class="blog"></section><!--/.blog-->
+<!--blog end -->
+

@@ -1,0 +1,15 @@
+<div class="login-container">
+  <form (ngSubmit)="onLogin()" #loginForm="ngForm" class="login-form">
+    <h2>Login</h2>
+    <div class="input-group">
+      <label>Email</label>
+      <input type="email" name="email" [(ngModel)]="email" required autocomplete="username" />
+    </div>
+    <div class="input-group">
+      <label>Password</label>
+      <input type="password" name="password" [(ngModel)]="password" required autocomplete="current-password" />
+    </div>
+    <button type="submit" [disabled]="!loginForm.form.valid">Login</button>
+    <div *ngIf="loginError" class="error-msg">Invalid credentials</div>
+  </form>
+</div>

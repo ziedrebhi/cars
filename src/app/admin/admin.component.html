@@ -1,0 +1,41 @@
+<nav>
+  <a routerLink="/home">Home</a>
+  <a routerLink="/featured">Featured Cars</a>
+  <a routerLink="/admin">Admin</a>
+</nav>
+
+<div class="admin-container">
+  
+<h2>Manage Cars</h2>
+<form (ngSubmit)="addCar()" style="margin-bottom:1rem;">
+  <input [(ngModel)]="newCar.name" name="carName" placeholder="Car Name" required />
+  <input [(ngModel)]="newCar.brand" name="carBrand" placeholder="Brand" required />
+  <input [(ngModel)]="newCar.model" name="carModel" placeholder="Model" />
+  <input [(ngModel)]="newCar.mileage" name="carMileage" placeholder="Mileage" />
+  <input [(ngModel)]="newCar.hp" name="carHp" placeholder="HP" />
+  <input [(ngModel)]="newCar.transmission" name="carTransmission" placeholder="Transmission" />
+  <input [(ngModel)]="newCar.price" name="carPrice" placeholder="Price" />
+  <input [(ngModel)]="newCar.image" name="carImage" placeholder="Image URL" />
+  <textarea [(ngModel)]="newCar.description" name="carDesc" placeholder="Description"></textarea>
+  <button type="submit">Add Car</button>
+</form>
+<ul>
+  <li *ngFor="let car of cars">
+    <b>{{car.name}}</b> ({{car.brand}}) - {{car.model}} - ${{car.price}}
+    <img [src]="car.image" alt="{{car.name}}" width="80" />
+    <button (click)="deleteCar(car.id)">Delete</button>
+  </li>
+</ul>
+<hr />
+<h2>Manage Brands</h2>
+<form (ngSubmit)="addBrand()" style="margin-bottom:1rem;">
+  <input [(ngModel)]="newBrand.name" name="brandName" placeholder="Brand Name" required />
+  <button type="submit">Add Brand</button>
+</form>
+<ul>
+  <li *ngFor="let brand of brands">
+    {{brand.name}}
+    <button (click)="deleteBrand(brand.id)">Delete</button>
+  </li>
+</ul>
+</div>
